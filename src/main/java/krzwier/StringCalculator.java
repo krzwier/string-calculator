@@ -6,7 +6,7 @@ package krzwier;
  */
 public class StringCalculator {
 
-	public int Add(String inputString) {
+	public int Add(String inputString) throws Exception {
 		// initialize default delimiters
 		String delimiters = "[,\n]";
 
@@ -20,11 +20,21 @@ public class StringCalculator {
 
 		String[] args = realInput.split(delimiters);
 		int sum = 0;
+		String negNumList = "";
+		boolean exceptionFlag = false;
 		for (int i = 0; i < args.length; i++) {
 			if (!args[i].isEmpty()){
 				int temp = Integer.parseInt(args[i]);
-				sum += temp;
+				if (temp < 0) {
+					exceptionFlag = true;
+					negNumList = negNumList + temp;
+				} else {
+					sum += temp;
+				}
 			}
+		}
+		if (exceptionFlag) {
+			throw new Exception("Negatives not allowed! (" + negNumList + ")");
 		}
 		return sum;
 	}
