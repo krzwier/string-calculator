@@ -150,6 +150,33 @@ public class StringCalculatorTest
         assertAdding(6,"//[***][%]\n1***2%3");
     }
 
+    @Test
+    public void Parse_EmptyString_ReturnsZero() {
+        StringCalculator calc = makeCalc();
+
+        int result = calc.parse("");
+
+        assertEquals(0,result);
+    }
+
+    @Test
+    public void Parse_SingleNumber_ReturnsThatNumber() {
+        StringCalculator calc = makeCalc();
+
+        int result = calc.parse("1");
+
+        assertEquals(1,result);
+    }
+
+    @Test
+    public void Parse_SingleNumber_ReturnsThatNumber2() {
+        StringCalculator calc = makeCalc();
+
+        int result = calc.parse("2");
+
+        assertEquals(2,result);
+    }
+
     /** 
      * Add division functionality
      */

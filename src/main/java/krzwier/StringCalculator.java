@@ -2,10 +2,6 @@ package krzwier;
 
 import java.util.regex.*; 
 
-/**
- * Hello world!
- *
- */
 public class StringCalculator {
 
 	public int Add(String inputString) throws Exception {
@@ -97,6 +93,13 @@ public class StringCalculator {
 
 	public int Subtract(int minuend, int subtrahend) {
 		return minuend - subtrahend;
+	}
+
+	public int parse(String inputString) {
+		if (inputString.isEmpty()){
+			return 0;
+		} 
+		return Integer.parseInt(inputString);
 	}
 
 
