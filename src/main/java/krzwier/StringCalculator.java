@@ -43,7 +43,8 @@ public class StringCalculator {
 
 	/** 
 	 * This method takes input string and checks for a beginning comment
-	 * returns a String array of comment and input
+	 * returns a String array where returnStrings[0] = comment and 
+	 * returnStrings[1] = number string
 	 * 
 	*/
 
@@ -51,21 +52,46 @@ public class StringCalculator {
 		// index 0 is used for comment
 		// index 1 is used for real input string
 		String[] returnStrings = {"", ""};
-		if (inputString.indexOf("//") == 0) {
-			if (inputString.indexOf("[") == 2) {
-				int end = inputString.indexOf("]");
-				returnStrings[0] = Pattern.quote(inputString.substring(3,end));
-				//returnStrings[0] = i
-				returnStrings[1] = inputString.substring(end + 2);
-			} else {
-				int end = inputString.indexOf('\n');
-				returnStrings[0] = inputString.substring(2,end);
-				returnStrings[1] = inputString.substring(end+1);
-			}
+
+		if (inputString.indexOf("//") == 0 && inputString.indexOf("[") == 2) {
+			// this is case where there are one or more bracketed delimiters
+			returnStrings = handleBracketedDelimiters(inputString);
+		} else if (inputString.indexOf("//") == 0) {
+			// this is case where there is a single-character custom delimiter
+			returnStrings = handleSingleCharacterDelimiter(inputString);
 		} else {
+			// this is case where there is no comment
 			returnStrings[0] = "";
 			returnStrings[1] = inputString;
 		}
+		return returnStrings;
+	}
+
+	private String[] handleBracketedDelimiters(String inputString) {
+		String temp = inputString.substring(2);
+		StringBuilder delimiter = new StringBuilder("(");
+		while (temp.indexOf("[") == 0) {
+			// this loop runs for each delimiter within square brackets
+			int end = temp.indexOf("]");
+			delimiter.append(Pattern.quote(temp.substring(1,end)) + "|");
+			temp = temp.substring(end + 1);
+		}
+		// delete appended pipe
+		delimiter.deleteCharAt(delimiter.length() - 1);
+		// add closing parentheses
+		delimiter.append(")");
+
+		String[] returnStrings = {"", ""};
+		returnStrings[0] = delimiter.toString();
+		returnStrings[1] = temp.substring(1);
+		return returnStrings;
+	}
+
+	private String[] handleSingleCharacterDelimiter(String inputString) {
+		String delimiter = inputString.substring(2, 3);
+		String[] returnStrings = {"", ""};
+		returnStrings[0] = Pattern.quote(delimiter);
+		returnStrings[1] = inputString.substring(4);
 		return returnStrings;
 	}
 

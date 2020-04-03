@@ -128,8 +128,16 @@ public class StringCalculatorTest
      * Delimiters can be of any length with the format "//[delimter]\n"
      */
     @Test
-    public void add_LongDelimiter_ReturnSum() throws Exception {
+    public void Add_LongDelimiter_ReturnSum() throws Exception {
         assertAdding(6,"//[***]\n1***2***3");
     }
 
+    /**
+     * Kata step 8
+     * Allow multiple delimiters inside of square brackets
+     */
+    @Test
+    public void Add_MultipleDelimiters_ReturnSum() throws Exception {
+        assertAdding(6,"//[*][%]\n1*2*3");
+    }
 }
