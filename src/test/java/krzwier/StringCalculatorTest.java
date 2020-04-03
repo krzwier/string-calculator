@@ -137,7 +137,16 @@ public class StringCalculatorTest
      * Allow multiple delimiters inside of square brackets
      */
     @Test
-    public void Add_MultipleDelimiters_ReturnSum() throws Exception {
+    public void Add_MultipleSingleCharDelimiters_ReturnSum() throws Exception {
         assertAdding(6,"//[*][%]\n1*2*3");
+    }
+
+    /**
+     * Kata step 9
+     * Allow multiple long delimiters
+     */
+    @Test
+    public void Add_MultipleLongDelimiters_ReturnSum() throws Exception {
+        assertAdding(6,"//[***][%]\n1***2%3");
     }
 }
