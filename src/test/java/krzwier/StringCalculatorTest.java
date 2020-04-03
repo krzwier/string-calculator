@@ -59,5 +59,14 @@ public class StringCalculatorTest
         assertAdding(3, "1,2");
     }
 
+    /**
+     * Kata step 2
+     * Test arbitrary number of entries as input
+     */
+    @Test
+    public void Add_ArbitraryNumArguments_ReturnSum(){
+        assertAdding(55,"1,2,3,4,5,6,7,8,9,10");
+    }
+
 
 }
