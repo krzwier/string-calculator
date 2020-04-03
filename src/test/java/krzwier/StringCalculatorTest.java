@@ -77,5 +77,13 @@ public class StringCalculatorTest
         assertAdding(6,"1\n2,3");
     }
 
+    /** 
+     * Kata step 4
+     * Support different delimiters
+     */
+    @Test
+    public void Add_ChangeDelimiterToSemicolon_ReturnSum(){
+        assertAdding(3,"//;\n1;2");
+    }
 
 }
