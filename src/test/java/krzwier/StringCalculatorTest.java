@@ -149,4 +149,16 @@ public class StringCalculatorTest
     public void Add_MultipleLongDelimiters_ReturnSum() throws Exception {
         assertAdding(6,"//[***][%]\n1***2%3");
     }
+
+    /** 
+     * Add division functionality
+     */
+    @Test
+    public void Subtract_twoSimpleNumbers_ReturnDifference() {
+        StringCalculator calc = makeCalc();
+
+        int result = calc.Subtract(2,1);
+
+        assertEquals(1, result);
+    }
 }

@@ -95,4 +95,9 @@ public class StringCalculator {
 		return returnStrings;
 	}
 
+	public int Subtract(int minuend, int subtrahend) {
+		return minuend - subtrahend;
+	}
+
+
 }
