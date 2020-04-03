@@ -114,4 +114,13 @@ public class StringCalculatorTest
         assertEquals(expectedMessage, actualMessage);
     }
 
+    /**
+     * Kata step 6
+     * Numbers bigger than 1000 should be ignored
+     */
+    @Test
+    public void Add_NumberBiggerThan1000_IgnoreForSum() throws Exception {
+        assertAdding(2,"2,1001");
+    }
+
 }

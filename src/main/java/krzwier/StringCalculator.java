@@ -28,7 +28,7 @@ public class StringCalculator {
 				if (temp < 0) {
 					exceptionFlag = true;
 					negNumList = negNumList + temp;
-				} else {
+				} else if (temp <= 1000){
 					sum += temp;
 				}
 			}
