@@ -68,5 +68,14 @@ public class StringCalculatorTest
         assertAdding(55,"1,2,3,4,5,6,7,8,9,10");
     }
 
+    /**
+     * Kata step 3
+     * Allow add method to handle new lines between numbers
+     */
+    @Test
+    public void Add_NewLinesBetweenNumbers_ReturnSum(){
+        assertAdding(6,"1\n2,3");
+    }
+
 
 }

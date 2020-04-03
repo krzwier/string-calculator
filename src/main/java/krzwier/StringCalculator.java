@@ -7,7 +7,7 @@ package krzwier;
 public class StringCalculator {
 
 	public int Add(String inputString) {
-		String[] args = inputString.split(",");
+		String[] args = inputString.split("[,\n]");
 		int sum = 0;
 		for (int i = 0; i < args.length; i++) {
 			if (!args[i].isEmpty()){
