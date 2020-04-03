@@ -123,4 +123,13 @@ public class StringCalculatorTest
         assertAdding(2,"2,1001");
     }
 
+    /**
+     * Kata step 7
+     * Delimiters can be of any length with the format "//[delimter]\n"
+     */
+    @Test
+    public void add_LongDelimiter_ReturnSum() throws Exception {
+        assertAdding(6,"//[***]\n1***2***3");
+    }
+
 }

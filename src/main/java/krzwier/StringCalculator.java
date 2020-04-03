@@ -1,5 +1,7 @@
 package krzwier;
 
+import java.util.regex.*; 
+
 /**
  * Hello world!
  *
@@ -50,9 +52,16 @@ public class StringCalculator {
 		// index 1 is used for real input string
 		String[] returnStrings = {"", ""};
 		if (inputString.indexOf("//") == 0) {
-			int end = inputString.indexOf('\n');
-			returnStrings[0] = inputString.substring(2,end);
-			returnStrings[1] = inputString.substring(end+1);
+			if (inputString.indexOf("[") == 2) {
+				int end = inputString.indexOf("]");
+				returnStrings[0] = Pattern.quote(inputString.substring(3,end));
+				//returnStrings[0] = i
+				returnStrings[1] = inputString.substring(end + 2);
+			} else {
+				int end = inputString.indexOf('\n');
+				returnStrings[0] = inputString.substring(2,end);
+				returnStrings[1] = inputString.substring(end+1);
+			}
 		} else {
 			returnStrings[0] = "";
 			returnStrings[1] = inputString;
