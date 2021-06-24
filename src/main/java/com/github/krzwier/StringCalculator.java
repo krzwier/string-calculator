@@ -1,5 +1,6 @@
-package krzwier;
+package com.github.krzwier;
 
+import java.util.Scanner;
 import java.util.regex.*; 
 
 public class StringCalculator {
@@ -101,6 +102,20 @@ public class StringCalculator {
 		} 
 		return Integer.parseInt(inputString);
 	}
+
+    public static void main(String[] args) throws Exception {
+        String input = "";
+        StringCalculator calc = new StringCalculator();
+        Scanner in = new Scanner(System.in);
+        while (!input.equals("exit")){
+            System.out.println(calc.Add(input));
+            System.out.println("Enter your addition problem as a string of numbers, or type \"exit\" to quit program:");
+            input = in.nextLine();
+
+        }
+        in.close();
+        
+    }
 
 
 }
